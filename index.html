@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>G3S2 채팅 시스템 (디스코드 스타일)</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="container">
+        <div class="room-list">
+            <header>채팅방</header>
+            
+            <button type="button" id="calendar-toggle-btn">🗓️ 일정/캘린더 보기 (클릭)</button> 
+            
+            <div id="announcement-bar">
+            </div>
+            
+            <ul id="rooms">
+                
+            </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="chat">
+            <main id="chat-box">
+                <div id="messages"></div> 
+            </main>
+
+            <form id="chat-form" class="send-box">
+                <button type="button" id="date-btn">내일 일정 템플릿</button>
+                <textarea 
+                    id="msg" 
+                    placeholder="!일정 제목,년,MMDD 또는 내일/모레,시간"
+                    autocomplete="off"
+                    rows="1"
+                ></textarea> 
+                <button type="submit" id="send-btn">전송</button>
+            </form>
+        </div>
+    </div>
+    
+    <div id="schedule-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="calendar-view">
+                <div class="calendar-controls">
+                    <button id="prev-month-btn"> &lt; 이전 달</button>
+                    <h3 id="current-month-year"></h3> 
+                    <button id="next-month-btn">다음 달 &gt; </button>
+                </div>
+                
+                <table id="calendar-grid">
+                    <thead>
+                        <tr>
+                            <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script> 
+</body>
+</html>
